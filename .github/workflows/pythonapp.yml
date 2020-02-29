@@ -2,8 +2,8 @@ name: Python application
 
 on:
   push:
-  schedule:
-    - cron: "*/5 * * * *"
+  # schedule:
+  #   - cron: "*/5 * * * *"
   repository_dispatch:
   
 jobs:
@@ -24,16 +24,16 @@ jobs:
         pip --version
         python --version
 
-  gpu:
-    runs-on: [self-hosted]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Toto
-      run: echo $RUNNER_TOOL_CACHE
-    - run: python --version
-    - name: Install dependencies
-      run: |
-        pip --version
-        python --version
-        nvidia-smi
-        python -c "import torch; print(torch.cuda.is_available())"
+  # gpu:
+  #   runs-on: [self-hosted]
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: Toto
+  #     run: echo $RUNNER_TOOL_CACHE
+  #   - run: python --version
+  #   - name: Install dependencies
+  #     run: |
+  #       pip --version
+  #       python --version
+  #       nvidia-smi
+  #       python -c "import torch; print(torch.cuda.is_available())"
